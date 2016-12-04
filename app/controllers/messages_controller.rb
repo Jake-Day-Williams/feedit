@@ -39,7 +39,6 @@ class MessagesController < ApplicationController
   end
 
 
-
   private
 
   def find_message
