@@ -26,7 +26,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form', '~> 3.1.0'
 
 gem 'bootstrap-sass', '~> 3.3.4.1'
+
+gem 'devise', '~> 3.4.1'
+
 # Use ActiveModel has_secure_password
+
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
