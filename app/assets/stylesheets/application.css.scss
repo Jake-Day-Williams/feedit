@@ -98,19 +98,27 @@ h1, h2, h3, h4, h5, h6 {
 	box-sizing: border-box;
 	background-color: #1d1d1d;
 	border-radius: 5px;
-	margin-bottom: 25px;
+	margin-bottom: 15px;
 	margin-right: 5px;
 	margin-left: 5px;
-	padding: 1em 1em;
+	padding: 1em;
 	color: #FFF;
 	height: 90px;
+
+  .message-items {
+    border-width: 1px;
+    float: left;
+    height: 65px;
+    padding: .2em;
+    padding-right: .5em;
+  }
 
 	.message-title  {
 		font-size: 1.2em;
 		font-weight: 300;
 		margin-top: 0;
 		text-color: #FFF;
-		margin-bottom: 25px;
+		margin-bottom: 1px;
     &:visited {
   		color: #593271;
   		transition: 0.5s;
@@ -136,10 +144,23 @@ h1, h2, h3, h4, h5, h6 {
 		margin-top: 12px;
 	}
 
+  .vote-box {
+    text-align: center;
+    border-width: 1px;
+    float: left;
+    height: 65px;
+    padding: .2em;
+    padding-right: .5em;
+  }
+
 }
 
 .message:nth-child(4n) {
 	clear: left;
+}
+
+.vertical-center {
+  vertical-align: middle;
 }
 
 /* Message show-page styles */

@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :find_message, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :find_message, only: [:show, :edit, :update, :destroy]
 
   def index
     @messages = Message.all.order("created_at DESC")
@@ -40,15 +40,17 @@ class MessagesController < ApplicationController
   end
 
   def upvote
+    @message = Message.find(params[:id])
     @message.upvote_by current_user
     redirect_to :back
   end
 
   def downvote
+    @message = Message.find(params[:id])
     @message.downvote_by current_user
     redirect_to :back
   end
-  
+
 
   private
 
