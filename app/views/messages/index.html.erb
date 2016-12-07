@@ -1,9 +1,9 @@
 <% @messages.each do |message| %>
   <div class="col-md-10 col-md-offset-1">
     <div class="message"
-      <h2 class="message-title"><%= message.title %></h2>
+      <h2><%= link_to message.title, message, class: "message-title" %></h2>
       <p class="message-details">Submitted <%= time_ago_in_words(message.created_at) %> ago by <%= message.user.email %></p>
-      <p class="message-comments"><%= link_to "Comments", message %></p>
+      <p class="message-comments"><%= link_to "#{message.comments.count} Comments", message %></p>
     </div>
   </div>
 

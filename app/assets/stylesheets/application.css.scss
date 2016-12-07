@@ -103,15 +103,23 @@ h1, h2, h3, h4, h5, h6 {
 	margin-left: 5px;
 	padding: 1em 1em;
 	color: #FFF;
-	height: 80px;
+	height: 90px;
 
-
-	.message-title {
-		font-size: 2em;
+	.message-title  {
+		font-size: 1.2em;
 		font-weight: 300;
 		margin-top: 0;
 		text-color: #FFF;
 		margin-bottom: 25px;
+    &:visited {
+  		color: #593271;
+  		transition: 0.5s;
+    }
+    &:hover {
+      color: #009d8a;
+      transition: 0.5s;
+    }
+
 	}
 
   .message-details {
