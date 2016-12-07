@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :find_message, only: [:show, :edit, :update, :destroy]
+  before_action :find_message, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 
   def index
     @messages = Message.all.order("created_at DESC")
@@ -39,6 +39,16 @@ class MessagesController < ApplicationController
     redirect_to root_path
   end
 
+  def upvote
+    @message.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @message.downvote_by current_user
+    redirect_to :back
+  end
+  
 
   private
 
