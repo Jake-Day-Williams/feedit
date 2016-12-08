@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Forarm</title>
+  <title>FEEDIT</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,31 +9,25 @@
 <body>
 
   <nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <%= link_to "FORARM", root_path, class: "navbar-brand" %></div>
-
-      <ul class="navbar-nav nav navbar-right">
-        <% if user_signed_in? %>
-          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to "Login", new_user_session_path %></li>
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
-        <% end %>
-      </ul>
-
-      <% if user_signed_in? %>
-        <p><%= link_to "Add Post", new_message_path, class: "navbar-text navbar-link" %></p>
-      <% end %>
+    <div class="navbar-header">
+      <%= link_to "feedit", root_path, class: "navbar-brand" %>
     </div>
+      <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <li><%= link_to "Add Post", new_message_path %></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Login", new_user_session_path %></li>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+      <% end %>
+      </ul>
   </nav>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <% flash.each do |name, msg| %>
+  	<%= content_tag(:div, msg, class: "alert alert-info") %>
+  <% end %>
 
-  <div class="container">
-    <%= yield %>
-  </div>
+  <%= yield %>
 
 </body>
 </html>

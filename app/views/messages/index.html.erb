@@ -1,18 +1,18 @@
 <% @messages.each do |message| %>
-  <div class="col-md-10 col-md-offset-1">
+  <div class=".col-xs-12 .col-md-8">
     <div class="message">
 
       <div class="vote-box">
         <%= link_to like_message_path(message), method: :put, class: "glyphicon glyphicon-menu-up" do %>
         <% end %>
         </br>
-        <%= message.get_upvotes.size - message.get_downvotes.size %>
+        <%= message.cached_votes_up %>
         </br>
         <%= link_to dislike_message_path(message), method: :put, class: "glyphicon glyphicon-menu-down" do %>
           <% end %>
         </div>
       <div class="message-items">
-        <%= link_to truncate(message.title, length: 90), message, class: "message-title" %>
+        <%= link_to message.title, message, class: "message-title" %>
         <div class="message-details">Submitted <%= time_ago_in_words(message.created_at) %> ago by <%= message.user.email %></div>
         <%= link_to "#{message.comments.count} Comments", message, class: "message-comments" %>
       </div>

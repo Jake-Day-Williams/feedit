@@ -1,5 +1,5 @@
 class Message < ActiveRecord::Base
-  acts_as_votable
   belongs_to :user
+  acts_as_votable
   has_many :comments
 end

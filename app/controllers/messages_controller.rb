@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
   before_action :find_message, only: [:show, :edit, :update, :destroy]
 
   def index
-    @messages = Message.all.order("created_at DESC")
+    @messages = Message.all.order('cached_votes_up desc')
   end
 
   def show
@@ -41,13 +41,13 @@ class MessagesController < ApplicationController
 
   def upvote
     @message = Message.find(params[:id])
-    @message.upvote_by current_user
+    @message.liked_by current_user
     redirect_to :back
   end
 
   def downvote
     @message = Message.find(params[:id])
-    @message.downvote_by current_user
+    @message.disliked_by current_user
     redirect_to :back
   end
 
