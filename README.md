@@ -1,4 +1,4 @@
-# REEDIT
+# FEEDIT
 
 #### A Reddit Remix
 
