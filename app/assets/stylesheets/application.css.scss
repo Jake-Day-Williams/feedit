@@ -168,17 +168,15 @@ h1, h2, h3, h4, h5, h6 {
 	border-radius: 5px;
 	padding: 2.0em 1.5em;
 	font-family: 'Asap', sans-serif;
-	font-weight: 300;
+
 
 	.message-desc {
-		font-size: 1.1em;
-		line-height: 1.75;
-		margin-bottom: 50px;
+		font-size: 1em;
 	}
 
 	.message-posted-by {
-		color: #8c8c8c;
-		font-size: 0.5em;
+    color: grey;
+    font-size: .8em;
 	}
 
 	.reply-to-msg {
@@ -199,8 +197,9 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 	.comment-posted-by {
-		color: #eee;
-		font-size: 0.8em;
+    color: grey;
+    font-size: .8em;
+    margin-bottom: 0px;
 	}
 
 	.links {

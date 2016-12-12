@@ -1,8 +1,8 @@
 <div class="col-md-10 col-md-offset-1">
   <div class="message-show">
-    <h2><%= @message.title %></h2>
-    <p class="message-posted-by"><%= time_ago_in_words(@message.created_at) %> ago </p>
-    <p class="message-desc"><%= @message.description %> </br>
+    <h4><%= @message.title %></h4>
+    <p class="message-posted-by"> submitted <%= time_ago_in_words(@message.created_at) %> ago by <%= @message.user.email %></p>
+    <p class="message-desc"><%= @message.description %>    
     <% if user_signed_in? %>
       <% if @message.user_id == current_user.id %>
         <%= link_to "Edit", edit_message_path, class: "btn btn-primary btn-xs" %>
@@ -18,8 +18,6 @@
 
     <h3 class="comment-section-header">Comments</h3>
     <hr>
-
-
 
     <ul>
       <%= render partial: 'comments/comment', collection: @message.comments %>

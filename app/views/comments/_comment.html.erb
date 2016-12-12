@@ -1,10 +1,8 @@
 <div class="comment">
     <p class="comment-content">
     <li>
-      <small> by: <%= comment.user.email %> - <%= time_ago_in_words(comment.created_at) %> ago </small>
-      </br>
+      <p class="comment-posted-by"><%= comment.user.email %> - <%= time_ago_in_words(comment.created_at) %> ago</p>
       <%= comment.content %>
-      </br>
 
       <%= simple_form_for ([comment, Comment.new]) do |f| %>
         <%= f.input :content, label: false %>
