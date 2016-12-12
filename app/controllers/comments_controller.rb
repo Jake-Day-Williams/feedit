@@ -1,16 +1,19 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_message, only: [:create, :edit, :update, :destroy]
-  before_action :find_comment, only: [:edit, :update, :destroy]
+  before_action :find_commentable
+
+  def new
+    @comment = Comment.new
+  end
 
   def create
-    @comment = @message.comments.create(comment_params)
+    @comment = @commentable.comments.new(comment_params)
     @comment.user_id = current_user.id
 
     if @comment.save
-      redirect_to message_path(@message)
+      redirect_to :back, notice: "Success! Your comment was posted."
     else
-      render 'new'
+      redirect_to :back, notice: "Something went wrong. No comment posted."
     end
   end
 
@@ -37,13 +40,9 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:content)
   end
 
-  def find_message
-    @message = Message.find(params[:message_id])
+  def find_commentable
+    @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
+    @commentable = Message.find_by_id(params[:message_id]) if params[:message_id]
   end
-
-  def find_comment
-    @comment = @message.comments.find(params[:id])
-  end
-
 
 end

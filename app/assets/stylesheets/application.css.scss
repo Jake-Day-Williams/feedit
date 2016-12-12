@@ -21,7 +21,6 @@
 /* General styles */
 
 body {
-	background: black;
   font-family: 'Lato', sans-serif;
 }
 
@@ -104,7 +103,6 @@ h1, h2, h3, h4, h5, h6 {
 	border-radius: 5px;
 	margin: 5px;
 	padding: 1em;
-	color: #FFF;
 
   .message-items {
     border-width: 1px;
@@ -116,20 +114,19 @@ h1, h2, h3, h4, h5, h6 {
 		font-size: 1.2em;
 		font-weight: 300;
 		margin-top: 0;
-		text-color: #FFF;
 		margin-bottom: 1px;
+    color: blue;
 
+      &:visited {
+    		color: #593271;
+    		transition: 0.5s;
+      }
 
-    &:visited {
-  		color: #593271;
-  		transition: 0.5s;
+      &:hover {
+        color: #009d8a;
+        transition: 0.5s;
+      }
     }
-    &:hover {
-      color: #009d8a;
-      transition: 0.5s;
-    }
-
-	}
 
   .message-details {
     font-size: .8em;
@@ -139,6 +136,7 @@ h1, h2, h3, h4, h5, h6 {
 
   .message-comments {
     font-size: 1em;
+    color: grey;
   }
 
 	.btn-custom {
@@ -153,7 +151,6 @@ h1, h2, h3, h4, h5, h6 {
     padding: .2em;
     padding-right: .5em;
   }
-
 }
 
 .message:nth-child(4n) {
@@ -168,11 +165,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .message-show {
 	box-sizing: border-box;
-	background-color: #9f9f9f;
 	border-radius: 5px;
 	padding: 2.0em 1.5em;
-	border-bottom: 4px solid #ec6767;
-	color: #fff;
 	font-family: 'Asap', sans-serif;
 	font-weight: 300;
 
@@ -197,7 +191,6 @@ h1, h2, h3, h4, h5, h6 {
 /* Comment styles */
 
 .comment {
-	border-bottom: 1px solid #ec6767;
 	padding-top: 15px;
 	padding-bottom: 15px;
 

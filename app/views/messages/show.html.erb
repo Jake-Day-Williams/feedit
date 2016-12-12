@@ -2,24 +2,28 @@
   <div class="message-show">
     <h2><%= @message.title %></h2>
     <p class="message-posted-by"><%= time_ago_in_words(@message.created_at) %> ago </p>
-    <p class="message-desc"><%= @message.description %></p>
+    <p class="message-desc"><%= @message.description %> </br>
+    <% if user_signed_in? %>
+      <% if @message.user_id == current_user.id %>
+        <%= link_to "Edit", edit_message_path, class: "btn btn-primary btn-xs" %>
+        <%= link_to "Remove", message_path, method: :delete, data: { confirm: "Really Delete?" }, class: "btn btn-danger btn-xs" %>
+      <% end %>
+    <% end %>
+    </p>
+
+    <%= simple_form_for ([@comment, Comment.new]) do |f| %></br>
+      <%= f.input :content, label: false %>
+      <%= f.submit "save", class: 'btn btn-default btn-xs' %>
+    <% end %>
 
     <h3 class="comment-section-header">Comments</h3>
-    <p><%= render @message.comments %></p>
-
-    <h3 class="reply-to-msg">Write a comment</h3>
-    <%= render 'comments/form' %>
+    <hr>
 
 
 
-    <div class="links btn-group">
-      <%= link_to "Back", root_path, class: "btn btn-default" %>
-      <% if user_signed_in? %>
-        <% if @message.user_id == current_user.id %>
-          <%= link_to "Edit", edit_message_path, class: "btn btn-primary" %>
-          <%= link_to "Remove", message_path, method: :delete, data: { confirm: "Really Delete?" }, class: "btn btn-danger" %>
-        <% end %>
-      <% end %>
-    </div>
+    <ul>
+      <%= render partial: 'comments/comment', collection: @message.comments %>
+    </ul>
+
   </div>
 </div>
